@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Galerie des livrables';
+const description = '38 exemples de livrables produits par les stagiaires après un accompagnement Alliance Digitale : Qonto, Indy, Pennylane, Notion, Axonaut, Obat / Trustup Pro.';
+
+const sections = [
+  {
+    code: 'A',
+    title: 'Stack A — Essentiel Solo',
+    items: [
+      { id: 'A1', title: 'Devis mobile Qonto', desc: 'Vue smartphone d’un devis prêt à envoyer, 3 lignes, total 1 240 € HT', key: 'Créez un devis conforme en mobilité en 3 minutes' },
+      { id: 'A2', title: 'Facture conforme 2026', desc: 'Facture PDF avec toutes les mentions légales 2026 encadrées en couleur', key: 'Toutes les mentions obligatoires 2026 sont pré-remplies' },
+      { id: 'A3', title: 'Tableau de bord trésorerie', desc: 'Vue Qonto avec solde, encours factures, prévisionnel 30 jours', key: 'Sachez à tout moment ce que vous avez, ce que vos clients vous doivent' },
+      { id: 'A4', title: 'Réception facture électronique', desc: 'Vue annuaire PA + facture entrante Factur-X', key: 'Recevez vos factures fournisseurs conformément à la loi 2026' },
+      { id: 'A5', title: 'Déclaration TVA Indy', desc: 'Écran de déclaration TVA prête à télé-déclarer', key: 'Votre TVA est prête à envoyer en 2 clics' },
+      { id: 'A6', title: 'Export FEC', desc: 'Fichier FEC exporté avec structure conforme', key: 'Transmettez un FEC parfait à votre expert-comptable ou à l’administration' },
+    ],
+  },
+  {
+    code: 'B',
+    title: 'Stack B — Confort TPE',
+    items: [
+      { id: 'B1', title: 'Catalogue produits/prestations', desc: 'Vue Pennylane du catalogue structuré par catégories, avec des taux de TVA différenciés', key: 'Votre catalogue, une fois. Vos devis, en 30 secondes.' },
+      { id: 'B2', title: 'Devis multi-lignes signé', desc: 'Devis PDF avec 8 lignes, remise, acompte, mention signature électronique validée', key: 'Un devis pro, signé sans imprimante ni scan' },
+      { id: 'B3', title: 'Cycle devis → facture', desc: 'Diagramme visuel : devis créé → envoyé → signé → converti → facturé → payé', key: 'Zéro ressaisie du devis à l’encaissement' },
+      { id: 'B4', title: 'Scénario de relance', desc: 'Configuration des 3 étapes de relance avec délais', key: 'Ne courez plus jamais après un client en retard' },
+      { id: 'B5', title: 'Lettrage automatique bancaire', desc: 'Split screen : virement reçu Qonto ↔ facture Pennylane lettrée automatiquement', key: 'Chaque paiement retrouve sa facture, sans intervention' },
+      { id: 'B6', title: 'Trésorerie prévisionnelle', desc: 'Graphique 90 jours avec solde actuel, encaissements attendus, sorties prévues', key: 'Anticipez vos besoins de trésorerie 90 jours à l’avance' },
+      { id: 'B7', title: 'DSO et top clients', desc: 'Widget DSO moyen, top 5 clients par CA, retards par client', key: 'Identifiez vos vrais bons clients — pas seulement ceux qui achètent le plus' },
+      { id: 'B8', title: 'Portail expert-comptable', desc: 'Vue expert-comptable connecté en temps réel sur les mêmes données', key: 'Votre expert-comptable travaille avec vous, plus après vous' },
+      { id: 'B9', title: 'Notion Suivi commercial', desc: 'Template Notion "Pipeline TPE" avec kanban 4 colonnes', key: 'Un pipeline commercial simple, connecté à votre facturation' },
+      { id: 'B10', title: 'Livret utilisateur personnalisé', desc: 'Photo du livret PDF ouvert sur une page contenant un screenshot de l’environnement du stagiaire', key: 'Votre documentation, avec vos propres écrans' },
+    ],
+  },
+  {
+    code: 'C',
+    title: 'Stack C — Commerciale intégrée',
+    items: [
+      { id: 'C1', title: 'Pipeline commercial kanban', desc: 'Vue Axonaut kanban à 5 colonnes avec deals en cours et montants', key: 'Voyez d’un regard tout le business en cours' },
+      { id: 'C2', title: 'Fiche client 360°', desc: 'Fiche contact avec historique, deals, factures, tâches, notes', key: 'Toute l’histoire d’un client sur un seul écran' },
+      { id: 'C3', title: 'Attribution automatique de lead', desc: 'Diagramme flow : lead entrant → règle → commercial attribué', key: 'Chaque lead trouve son commercial en 5 secondes' },
+      { id: 'C4', title: 'Tableau de bord commercial', desc: 'Dashboard CA du mois vs objectif, taux de conversion par étape, top vendeur', key: 'Pilotez votre équipe commerciale par la donnée, pas par l’intuition' },
+      { id: 'C5', title: 'Devis avec acomptes échelonnés', desc: 'Devis structuré avec 3 acomptes (30/40/30%) et échéancier visible', key: 'Sécurisez la trésorerie de vos gros dossiers' },
+      { id: 'C6', title: 'Séquence email marketing', desc: 'Configuration séquence 5 emails automatique post-signature', key: 'Vos clients restent chauds, sans que vous y pensiez' },
+      { id: 'C7', title: 'Projet lié au devis', desc: 'Devis signé converti en projet avec tâches, temps passé, rentabilité', key: 'Du devis signé à la livraison rentable, sans changer d’outil' },
+      { id: 'C8', title: 'Multi-utilisateurs et droits', desc: 'Écran de gestion des droits par utilisateur', key: 'Chaque profil voit ce dont il a besoin, rien de plus' },
+      { id: 'C9', title: 'Application mobile terrain', desc: 'Smartphone montrant devis en cours de création chez le client', key: 'Signez chez le client, facturez avant de repartir' },
+      { id: 'C10', title: 'Reporting Excel exporté', desc: 'Rapport Excel automatique CA par produit et par client sur 12 mois', key: 'Vos données brutes exportées comme vous les voulez' },
+      { id: 'C11', title: 'Ticketing SAV', desc: 'Vue module de tickets client avec statut, priorité, temps de traitement', key: 'Vos réclamations clients ne se perdent plus dans les mails' },
+      { id: 'C12', title: 'Prévisionnel commercial', desc: 'Graphique forecast 90 jours par probabilité de signature', key: 'Sachez combien vous facturerez le mois prochain — avant qu’il commence' },
+    ],
+  },
+  {
+    code: 'D',
+    title: 'Stack D — BTP Artisan chantier',
+    items: [
+      { id: 'D1', title: 'Bibliothèque d’ouvrages', desc: 'Vue catalogue par corps d’état : plomberie, électricité, maçonnerie', key: 'Votre bibliothèque, votre gain de temps' },
+      { id: 'D2', title: 'Devis chantier structuré', desc: 'Devis par lots avec métré, unités BTP (ml, m², m³)', key: 'Un devis clair pour le client, précis pour vous' },
+      { id: 'D3', title: 'Signature terrain tablette', desc: 'Photo d’un artisan faisant signer un client sur tablette', key: 'Le devis signé avant de quitter le chantier' },
+      { id: 'D4', title: 'Facture de situation', desc: 'Facture 30% d’avancement avec calcul retenue garantie 5%', key: 'Facturez à l’avancement, encaissez à l’avancement' },
+      { id: 'D5', title: 'Suivi rentabilité chantier', desc: 'Comparatif prévisionnel vs réel avec écart en %', key: 'Découvrez si votre chantier était vraiment rentable' },
+      { id: 'D6', title: 'Photos avant/après', desc: 'Fiche chantier avec galerie photos organisée par étape', key: 'Toute la mémoire du chantier au même endroit' },
+      { id: 'D7', title: 'Pointage main d’œuvre mobile', desc: 'Écran mobile où l’ouvrier pointe son temps sur un chantier', key: 'Le pointage sans papier, la paie sans stress' },
+      { id: 'D8', title: 'Planning interventions', desc: 'Calendrier hebdomadaire des interventions par technicien', key: 'Voyez votre semaine chantier d’un coup d’œil' },
+      { id: 'D9', title: 'DGD décompte général', desc: 'Décompte général définitif avec récap acomptes, TVA, retenue de garantie', key: 'Bouclez le chantier proprement, avec toutes les mentions BTP obligatoires' },
+      { id: 'D10', title: 'Facture électronique PEPPOL', desc: 'Facture au format Factur-X BTP + statut PEPPOL "reçu"', key: 'Vos factures 2026 conformes, même pour vos gros donneurs d’ordre' },
+    ],
+  },
+];
+
+const total = sections.reduce((acc, s) => acc + s.items.length, 0);
+---
+
+<Layout title={title} description={description}>
+  <section class="relative bg-navy text-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <p class="text-accent font-semibold tracking-wide uppercase text-sm mb-3 text-center">Exemples de résultats</p>
+      <h1 class="font-script text-5xl md:text-6xl mb-6 text-center">Galerie des livrables</h1>
+      <p class="text-lg md:text-xl text-ivory/90 text-center max-w-3xl mx-auto">
+        {total} visuels illustrant ce que vous serez en mesure de produire à l’issue de chaque accompagnement. Ces captures sont des exemples de rendu obtenus par des stagiaires dans leur environnement d’entraînement.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+      {sections.map((section) => (
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <span class="w-12 h-12 rounded-xl bg-accent text-ivory flex items-center justify-center text-2xl font-bold">{section.code}</span>
+            <h2 class="text-2xl md:text-3xl font-bold text-navy">{section.title}</h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {section.items.map((item) => (
+              <article class="group bg-ivory border border-navy/10 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow flex flex-col">
+                <div class="relative h-40 bg-gradient-to-br from-navy to-navy-light flex items-center justify-center">
+                  <div class="absolute inset-0 opacity-20">
+                    <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                      <path d="M0 0 L100 100 M100 0 L0 100" stroke="#FEFCF8" stroke-width="0.5" />
+                    </svg>
+                  </div>
+                  <span class="text-ivory/30 text-5xl font-bold">{item.id}</span>
+                  <span class="absolute bottom-3 right-3 text-ivory/40 text-xs">Exemple de rendu</span>
+                </div>
+                <div class="p-5 flex-grow flex flex-col">
+                  <p class="text-xs font-semibold text-slate uppercase tracking-wide mb-1">Livrable {item.id}</p>
+                  <h3 class="font-bold text-navy mb-2">{item.title}</h3>
+                  <p class="text-sm text-slate mb-3 flex-grow">{item.desc}</p>
+                  <blockquote class="text-sm font-semibold text-accent border-l-2 border-accent pl-3">
+                    {item.key}
+                  </blockquote>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-12 bg-ivory-dark/50 border-y border-navy/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-slate italic">
+        Ces exemples présentent le rendu obtenu par un stagiaire après notre formation. Les captures sont produites à partir d’un environnement d’entraînement configuré à vos couleurs.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-accent text-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Vous souhaitez obtenir ces livrables ?</h2>
+      <p class="text-lg text-ivory/90 mb-8">Commencez par l’audit gratuit. Nous identifions le stack adapté à votre activité et vous envoyons un devis personnalisé sous 48 heures.</p>
+      <a href="/#audit" class="btn-secondary border-ivory text-ivory hover:bg-ivory hover:text-accent">Faire l’audit</a>
+    </div>
+  </section>
+</Layout>

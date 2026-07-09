@@ -1,0 +1,311 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Stack D — BTP Artisan chantier';
+const description = 'Accompagnement Qonto + Obat / Trustup Pro pour artisans du BTP. Devis chantier, signature terrain, factures de situation et rentabilité chantier.';
+
+const morning = [
+  { time: '09h00-09h30', duration: "30'", title: 'Accueil et positionnement', desc: 'Spécificités BTP, attentes et organisation du chantier-type.' },
+  { time: '09h30-10h30', duration: "60'", title: 'Bibliothèque d’ouvrages', desc: 'Structuration par corps d’état, unités d’œuvre, coefficients matière/main d’œuvre, marges.' },
+  { time: '10h30-11h15', duration: "45'", title: 'Configuration entreprise', desc: 'Assurance décennale, mentions légales BTP, TVA à 10% travaux ou 20% neuf, attestation TVA client.' },
+  { time: '11h15-11h30', duration: "15'", title: 'Pause', desc: '' },
+  { time: '11h30-12h30', duration: "60'", title: 'Devis chantier', desc: 'Création d’un devis structuré par lot, métré rapide, remise commerciale, mentions obligatoires BTP.' },
+];
+
+const afternoon = [
+  { time: '13h30-14h15', duration: "45'", title: 'Signature terrain', desc: 'Application mobile, signature électronique tablette, gestion hors ligne, envoi immédiat au client.' },
+  { time: '14h15-15h15', duration: "60'", title: 'Factures de situation', desc: 'Facturation à l’avancement, retenue de garantie, cautionnement, décompte général définitif.' },
+  { time: '15h15-15h30', duration: "15'", title: 'Pause', desc: '' },
+  { time: '15h30-16h15', duration: "45'", title: 'Suivi rentabilité chantier', desc: 'Coûts prévisionnels vs réels, main d’œuvre pointée, achats matériaux, marge finale par chantier.' },
+  { time: '16h15-16h45', duration: "30'", title: 'Cas pratique', desc: 'Chiffrage d’un chantier + signature simulée + facture de situation.' },
+  { time: '16h45-17h00', duration: "15'", title: 'Récap, évaluation, attestation', desc: '' },
+];
+
+const objectives = [
+  'Chiffrer rapidement un devis chantier avec sa bibliothèque d’ouvrages',
+  'Faire signer un devis sur le terrain avec signature électronique tablette/mobile',
+  'Émettre des factures de situation à l’avancement conformes aux règles BTP',
+  'Suivre la rentabilité de chaque chantier (prévisionnel vs réel)',
+  'Gérer les sous-traitants et les acomptes clients',
+  'Émettre des factures électroniques conformes 2026',
+];
+
+const deliverables = [
+  'Livret utilisateur personnalisé BTP (14-16 pages)',
+  'Bibliothèque d’ouvrages type importable (à personnaliser)',
+  'Modèles de devis et factures BTP conformes',
+  '8 vidéos tutorielles workflows BTP',
+  'Accès Notion "Fiches réflexe BTP + veille réglementaire"',
+  '30 jours de hotline mail post-formation',
+];
+
+const quoteSkills = [
+  'Structurer une bibliothèque d’ouvrages par corps d’état',
+  'Chiffrer un chantier en moins de 15 minutes avec la bibliothèque',
+  'Créer un devis structuré par lot (démolition, gros œuvre, second œuvre)',
+  'Utiliser les unités d’œuvre BTP (ml, m², m³, forfait, unité)',
+  'Appliquer les coefficients de vente (matière + main d’œuvre + marge)',
+  'Ajouter une variante ou une option chiffrée',
+  'Faire signer un devis sur tablette/mobile en clientèle',
+  'Recevoir la signature du client par lien email',
+  'Suivre le statut du devis (envoyé, vu, signé, refusé)',
+];
+
+const invoiceSkills = [
+  'Émettre une facture d’acompte',
+  'Émettre une facture de situation à l’avancement (%)',
+  'Gérer la retenue de garantie de 5%',
+  'Émettre le décompte général définitif (DGD)',
+  'Appliquer la TVA à 10% travaux avec attestation client',
+  'Émettre une facture conforme aux mentions obligatoires BTP',
+  'Émettre une facture électronique via le réseau PEPPOL',
+  'Convertir un devis signé en facture en un clic',
+];
+
+const siteSkills = [
+  'Créer une fiche chantier liée à un devis signé',
+  'Attacher des photos avant/après au dossier chantier',
+  'Rédiger un compte-rendu chantier',
+  'Pointer le temps de main d’œuvre par intervenant',
+  'Suivre les achats de matériaux affectés au chantier',
+  'Comparer le prévisionnel et le réel en temps réel',
+  'Calculer la marge finale par chantier',
+  'Gérer les sous-traitants et leurs factures',
+  'Émettre un ordre de service ou un ordre de mission',
+];
+
+const mobileSkills = [
+  'Émettre un devis depuis le smartphone/tablette',
+  'Prendre une photo et l’attacher au dossier client',
+  'Consulter le planning des interventions',
+  'Voir l’historique complet d’un client sur son mobile',
+  'Fonctionner en mode hors ligne et synchroniser au retour de réseau',
+  'Envoyer une facture immédiatement après intervention',
+];
+
+const pilotageSkills = [
+  'Suivre le carnet de commandes (chantiers signés à venir)',
+  'Consulter le CA prévisionnel des 3 prochains mois',
+  'Identifier les chantiers en dépassement de budget',
+  'Analyser la rentabilité moyenne par type de prestation',
+  'Suivre les impayés et les DSO',
+  'Recevoir des alertes sur les retards de paiement',
+];
+---
+
+<Layout title={title} description={description}>
+  <section class="relative bg-navy text-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-accent font-semibold tracking-wide uppercase text-sm mb-3">Stack D</p>
+          <h1 class="font-script text-5xl md:text-6xl mb-6">BTP Artisan chantier</h1>
+          <p class="text-lg md:text-xl text-ivory/90 mb-6">
+            Devis, factures et rentabilité chantier avec Qonto et Obat / Trustup Pro. Pour l’artisan du bâtiment qui veut chiffrer vite, signer sur le terrain et savoir si chaque chantier est rentable.
+          </p>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="px-4 py-2 rounded-full bg-ivory/10 text-ivory text-sm font-medium">Qonto</span>
+            <span class="px-4 py-2 rounded-full bg-ivory/10 text-ivory text-sm font-medium">Obat / Trustup Pro</span>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/#audit" class="btn-primary">Demander un devis</a>
+            <a href="/livrables/" class="btn-secondary border-ivory text-ivory hover:bg-ivory hover:text-navy">Voir les livrables</a>
+          </div>
+        </div>
+        <div class="bg-ivory text-navy rounded-2xl p-8 shadow-xl">
+          <p class="text-sm text-slate uppercase tracking-wide mb-2">Investissement</p>
+          <p class="text-5xl font-bold text-navy mb-2">890 € HT</p>
+          <p class="text-slate mb-6">Formation 2 heures comprise</p>
+          <hr class="border-navy/10 mb-6" />
+          <ul class="space-y-3">
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Installation et paramétrage Qonto + Obat/Trustup Pro</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Formation 2h (présentiel ou visio)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Devis chantier, factures de situation, rentabilité</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-navy mb-4">Public visé</h2>
+          <p class="text-slate text-lg">
+            Artisans du BTP (plombiers, électriciens, maçons, menuisiers, carreleurs, peintres, chauffagistes), TPE du bâtiment jusqu’à 15 personnes, gérants de sociétés artisanales.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-navy mb-4">Prérequis</h2>
+          <ul class="space-y-2 text-slate">
+            <li>Connaître son métier et sa bibliothèque d’ouvrages courants</li>
+            <li>Disposer d’un catalogue de tarifs unitaires, même sommaire</li>
+            <li>Savoir utiliser un ordinateur et un smartphone (pour la partie terrain)</li>
+            <li>Avoir un compte bancaire professionnel actif ou en cours d’ouverture</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory-dark/50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-10 text-center">Objectifs pédagogiques</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {objectives.map((objective, i) => (
+          <div class="bg-ivory p-6 rounded-xl shadow-sm border-l-4 border-accent">
+            <div class="flex items-start gap-4">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-ivory flex items-center justify-center font-bold">{i + 1}</span>
+              <p class="text-navy/90">{objective}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-10 text-center">Programme détaillé (7 heures)</h2>
+
+      <h3 class="text-xl font-bold text-navy mb-6">Matinée — Structuration et chiffrage</h3>
+      <div class="space-y-6 mb-12">
+        {morning.map((item) => (
+          <div class="md:grid md:grid-cols-12 md:gap-6 items-start">
+            <div class="md:col-span-3 mb-2 md:mb-0">
+              <p class="font-semibold text-navy">{item.time}</p>
+              <p class="text-sm text-slate">{item.duration}</p>
+            </div>
+            <div class="md:col-span-9 bg-ivory-dark/50 p-5 rounded-xl border-l-4 border-navy">
+              <h4 class="font-bold text-lg text-navy mb-1">{item.title}</h4>
+              {item.desc && <p class="text-slate">{item.desc}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="text-xl font-bold text-navy mb-6">Après-midi — Terrain et rentabilité</h3>
+      <div class="space-y-6">
+        {afternoon.map((item) => (
+          <div class="md:grid md:grid-cols-12 md:gap-6 items-start">
+            <div class="md:col-span-3 mb-2 md:mb-0">
+              <p class="font-semibold text-navy">{item.time}</p>
+              <p class="text-sm text-slate">{item.duration}</p>
+            </div>
+            <div class="md:col-span-9 bg-ivory-dark/50 p-5 rounded-xl border-l-4 border-accent">
+              <h4 class="font-bold text-lg text-navy mb-1">{item.title}</h4>
+              {item.desc && <p class="text-slate">{item.desc}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-navy text-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">Ce que vous saurez faire</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-4">Devis chantier</h3>
+          <ul class="space-y-2">
+            {quoteSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-ivory/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-4">Factures BTP</h3>
+          <ul class="space-y-2">
+            {invoiceSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-ivory/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-4">Gestion chantier</h3>
+          <ul class="space-y-2">
+            {siteSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-ivory/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-4">Terrain et mobilité</h3>
+          <ul class="space-y-2">
+            {mobileSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-ivory/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="md:col-span-2 lg:col-span-2">
+          <h3 class="text-xl font-bold text-accent mb-4">Pilotage</h3>
+          <ul class="space-y-2 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+            {pilotageSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-ivory/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">Livrables remis au stagiaire</h2>
+          <ul class="space-y-4">
+            {deliverables.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="text-accent">✓</span>
+                <span class="text-navy/90">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-accent/5 border border-accent/20 rounded-2xl p-8">
+          <h3 class="text-2xl font-bold text-navy mb-4">Évaluation finale</h3>
+          <p class="text-slate mb-4">
+            Cas pratique de 60 minutes : chiffrage complet d’un chantier fictif (rénovation salle de bain), création du devis, simulation de signature, émission de la première facture de situation à 30%, calcul de la retenue de garantie.
+          </p>
+          <p class="font-semibold text-navy">Réussite = 5 tâches sur 5.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-accent text-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Artisan du BTP ?</h2>
+      <p class="text-lg text-ivory/90 mb-8">L’audit rapide identifie si le Stack D correspond à votre organisation chantier, votre volume et vos contraintes de terrain.</p>
+      <a href="/#audit" class="btn-secondary border-ivory text-ivory hover:bg-ivory hover:text-accent">Faire l’audit</a>
+    </div>
+  </section>
+</Layout>

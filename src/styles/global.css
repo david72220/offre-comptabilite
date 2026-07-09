@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0F2942;
+  --color-navy-light: #1a3a5c;
+  --color-accent: #A63D40;
+  --color-accent-light: #c34d50;
+  --color-ivory: #FEFCF8;
+  --color-ivory-dark: #f5f0e8;
+  --color-slate: #5a6a7a;
+}
+
+@font-face {
+  font-family: 'Great Vibes';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/greatvibes/v19/RWmMoKWR9vMnsYCN0fwQmZDWBkRx88g.woff2') format('woff2');
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #FEFCF8;
+  color: #0F2942;
+}
+
+.font-script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.text-navy { color: #0F2942; }
+.text-accent { color: #A63D40; }
+.text-ivory { color: #FEFCF8; }
+.bg-navy { background-color: #0F2942; }
+.bg-accent { background-color: #A63D40; }
+.bg-ivory { background-color: #FEFCF8; }
+.border-navy { border-color: #0F2942; }
+.border-accent { border-color: #A63D40; }
+
+.prose h2 {
+  color: #0F2942;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose h3 {
+  color: #0F2942;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose p {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.prose a {
+  color: #A63D40;
+  text-decoration: underline;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #A63D40;
+  color: #FEFCF8;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #c34d50;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  color: #0F2942;
+  font-weight: 600;
+  border: 2px solid #0F2942;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #0F2942;
+  color: #FEFCF8;
+}

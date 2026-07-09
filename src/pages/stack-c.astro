@@ -1,0 +1,329 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Stack C — Commerciale intégrée';
+const description = 'Accompagnement Axonaut pour TPE de 3 à 15 personnes. CRM, pipeline, facturation, automatisations et reporting. Formation 1 ou 2 jours selon le besoin.';
+
+const morning = [
+  { time: '09h00-09h30', duration: "30'", title: 'Accueil, positionnement, tour de table', desc: '' },
+  { time: '09h30-10h30', duration: "60'", title: 'Architecture Axonaut', desc: 'Structuration entreprise, utilisateurs et droits, workflow d’approbation, personnalisation des modules.' },
+  { time: '10h30-11h15', duration: "45'", title: 'Catalogue et base clients', desc: 'Import du catalogue, création des familles produits, base clients enrichie, segmentation.' },
+  { time: '11h15-11h30', duration: "15'", title: 'Pause', desc: '' },
+  { time: '11h30-12h30', duration: "60'", title: 'Pipeline commercial', desc: 'Configuration des étapes, taux de conversion, actions automatisées à chaque étape.' },
+];
+
+const afternoon = [
+  { time: '13h30-14h30', duration: "60'", title: 'Cycle devis-facture', desc: 'Devis structuré, signature électronique, conversion facture, acompte, factures récurrentes, avoirs.' },
+  { time: '14h30-15h15', duration: "45'", title: 'Relances et lettrage', desc: 'Scénarios de relance personnalisés, gestion des exceptions, connexion bancaire, lettrage automatique.' },
+  { time: '15h15-15h30', duration: "15'", title: 'Pause', desc: '' },
+  { time: '15h30-16h15', duration: "45'", title: 'Reporting commercial', desc: 'Tableau de bord par vendeur, CA par produit, taux de conversion, prévisionnel commercial, alertes.' },
+  { time: '16h15-16h45', duration: "30'", title: 'Cas pratique final', desc: 'Réalisation en autonomie d’un scénario complet.' },
+  { time: '16h45-17h00', duration: "15'", title: 'Récap, évaluation, attestation', desc: '' },
+];
+
+const advancedDay2 = [
+  'Automatisations avancées : templates de mail, séquences email marketing, tâches automatiques par étape de pipeline',
+  'Gestion de projet liée aux devis : conversion opportunité → projet, feuille de temps, rentabilité par mission',
+  'Module SAV / ticketing : gestion des demandes clients, base de connaissances',
+  'Import massif et migration : contacts + historique depuis outil précédent',
+  'Intégrations tierces : Zapier, Google Workspace, Slack, Cal.com, application mobile terrain',
+  'Multi-établissements : gestion de plusieurs entités ou marques',
+  'Reporting avancé : tableaux de bord personnalisés, exports Excel automatisés',
+];
+
+const objectives = [
+  'Configurer Axonaut pour son activité (droits, workflows, catalogues)',
+  'Gérer un pipeline commercial avec ses étapes, ses taux de conversion et ses objectifs',
+  'Émettre des devis et factures conformes 2026 avec relances automatisées',
+  'Analyser la performance commerciale par vendeur, par produit et par période',
+  'Coordonner l’équipe autour d’un référentiel unique (fiches clients, notes, tâches)',
+  'Piloter la trésorerie et le prévisionnel commercial',
+];
+
+const deliverables = [
+  'Livret utilisateur personnalisé (14-18 pages)',
+  'Fichier catalogue produits/prestations structuré',
+  'Configuration Axonaut opérationnelle (pipeline, workflows, modèles)',
+  '10 vidéos tutorielles workflows clés',
+  'Accès Notion "Fiches réflexe Axonaut"',
+  '30 jours (F-C) ou 60 jours (F-C+) de hotline mail post-formation',
+];
+
+const crmSkills = [
+  'Créer et configurer un pipeline commercial multi-étapes',
+  'Définir des taux de conversion cibles par étape',
+  'Attribuer un lead à un commercial automatiquement selon des critères',
+  'Suivre le taux de conversion global et par vendeur',
+  'Créer des objectifs mensuels et trimestriels par vendeur',
+  'Générer un rapport de forecast à 30/60/90 jours',
+  'Segmenter la base clients par typologie',
+  'Enrichir une fiche client (historique, notes, tags, tâches, pièces jointes)',
+  'Programmer une relance manuelle ou automatique',
+  'Consulter l’historique complet des interactions avec un client',
+];
+
+const invoiceSkills = [
+  'Créer un devis structuré avec sections, remises, acomptes échelonnés',
+  'Configurer plusieurs modèles de devis pour différentes offres',
+  'Faire signer un devis électroniquement avec notification',
+  'Convertir un devis en projet ou en facture',
+  'Émettre des factures d’acompte, de solde, des avoirs',
+  'Créer une facture récurrente (abonnement)',
+  'Émettre une facture électronique conforme (Axonaut est PA immatriculée)',
+  'Configurer plusieurs scénarios de relance selon le type de client',
+  'Gérer les conditions de règlement personnalisées',
+];
+
+const operationalSkills = [
+  'Créer et suivre un projet lié à un devis signé',
+  'Attribuer des tâches à un membre de l’équipe',
+  'Suivre le temps passé par mission',
+  'Calculer la rentabilité par projet',
+  'Gérer une équipe avec droits d’accès différenciés',
+  'Configurer un workflow d’approbation',
+  'Gérer un catalogue produits avec variantes et stock léger',
+  'Traiter les demandes SAV via un module de ticketing',
+];
+
+const reportingSkills = [
+  'Consulter le CA du mois, du trimestre, de l’année',
+  'Comparer la performance vs objectif',
+  'Identifier les meilleurs clients (top 10 par CA)',
+  'Identifier les produits/prestations les plus rentables',
+  'Suivre la marge par devis',
+  'Analyser le pipeline (montant total, valeur pondérée par probabilité)',
+  'Suivre la trésorerie et le DSO',
+  'Exporter les rapports au format Excel ou PDF',
+  'Recevoir des alertes par email ou notification',
+];
+---
+
+<Layout title={title} description={description}>
+  <section class="relative bg-navy text-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-accent font-semibold tracking-wide uppercase text-sm mb-3">Stack C</p>
+          <h1 class="font-script text-5xl md:text-6xl mb-6">Commerciale intégrée</h1>
+          <p class="text-lg md:text-xl text-ivory/90 mb-6">
+            Piloter son activité commerciale avec Axonaut. Pour la TPE de 3 à 15 personnes qui a besoin d’un CRM actif, d’un pipeline structuré et d’un pilotage par la donnée.
+          </p>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="px-4 py-2 rounded-full bg-ivory/10 text-ivory text-sm font-medium">Axonaut</span>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/#audit" class="btn-primary">Demander un devis</a>
+            <a href="/livrables/" class="btn-secondary border-ivory text-ivory hover:bg-ivory hover:text-navy">Voir les livrables</a>
+          </div>
+        </div>
+        <div class="bg-ivory text-navy rounded-2xl p-8 shadow-xl">
+          <p class="text-sm text-slate uppercase tracking-wide mb-2">Investissement</p>
+          <p class="text-5xl font-bold text-navy mb-2">1 590 € HT + 1 200 € HT</p>
+          <p class="text-slate mb-6">Accompagnement + formation 2 jours / 14h (F-C+)</p>
+
+          <div class="bg-accent/5 rounded-xl p-4 mb-6">
+            <p class="text-sm font-semibold text-navy mb-1">Variante F-C (1 jour / 7h)</p>
+            <p class="text-slate text-sm">Accompagnement + formation 1 journée disponible sur demande. Le jour 2 approfondit les automatisations, le SAV/ticketing, les intégrations tierces et le reporting personnalisé.</p>
+          </div>
+
+          <hr class="border-navy/10 mb-6" />
+          <ul class="space-y-3">
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Installation et paramétrage Axonaut</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Formation 1 ou 2 jours (présentiel ou visio)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>CRM, pipeline, relances et reporting</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-navy mb-4">Public visé</h2>
+          <p class="text-slate text-lg">
+            Dirigeants et équipes commerciales de TPE de 3 à 15 personnes, avec un besoin fort de CRM (pipeline commercial actif, plusieurs commerciaux ou équipes), volume de facturation de plus de 80 factures par mois, budget ERP acceptable.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-navy mb-4">Prérequis</h2>
+          <ul class="space-y-2 text-slate">
+            <li>Bonnes bases informatiques (Excel intermédiaire, navigation web fluide)</li>
+            <li>Compréhension d’un pipeline commercial (prospect, opportunité, deal, taux de conversion)</li>
+            <li>Avoir défini un catalogue produits/prestations au préalable (même sommaire)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory-dark/50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-10 text-center">Objectifs pédagogiques</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {objectives.map((objective, i) => (
+          <div class="bg-ivory p-6 rounded-xl shadow-sm border-l-4 border-accent">
+            <div class="flex items-start gap-4">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-ivory flex items-center justify-center font-bold">{i + 1}</span>
+              <p class="text-navy/90">{objective}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4 text-center">Programme détaillé (7h — version F-C)</h2>
+      <p class="text-center text-slate mb-10 max-w-3xl mx-auto">
+        La formation F-C couvre l’essentiel du cycle commercial Axonaut. La version F-C+ (2 jours / 14h) ajoute les modules avancés listés ci-dessous.
+      </p>
+
+      <h3 class="text-xl font-bold text-navy mb-6">Matinée — Configuration et cycle commercial</h3>
+      <div class="space-y-6 mb-12">
+        {morning.map((item) => (
+          <div class="md:grid md:grid-cols-12 md:gap-6 items-start">
+            <div class="md:col-span-3 mb-2 md:mb-0">
+              <p class="font-semibold text-navy">{item.time}</p>
+              <p class="text-sm text-slate">{item.duration}</p>
+            </div>
+            <div class="md:col-span-9 bg-ivory-dark/50 p-5 rounded-xl border-l-4 border-navy">
+              <h4 class="font-bold text-lg text-navy mb-1">{item.title}</h4>
+              {item.desc && <p class="text-slate">{item.desc}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="text-xl font-bold text-navy mb-6">Après-midi — Automation et pilotage</h3>
+      <div class="space-y-6">
+        {afternoon.map((item) => (
+          <div class="md:grid md:grid-cols-12 md:gap-6 items-start">
+            <div class="md:col-span-3 mb-2 md:mb-0">
+              <p class="font-semibold text-navy">{item.time}</p>
+              <p class="text-sm text-slate">{item.duration}</p>
+            </div>
+            <div class="md:col-span-9 bg-ivory-dark/50 p-5 rounded-xl border-l-4 border-accent">
+              <h4 class="font-bold text-lg text-navy mb-1">{item.title}</h4>
+              {item.desc && <p class="text-slate">{item.desc}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-navy-light text-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">Programme approfondi F-C+ (jour 2)</h2>
+      <p class="text-center text-ivory/80 mb-10 max-w-3xl mx-auto">
+        Le deuxième jour ajoute les fonctions avancées d’Axonaut pour les équipes commerciales structurées.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {advancedDay2.map((item) => (
+          <div class="flex items-start gap-3 bg-navy/30 p-5 rounded-xl">
+            <span class="text-accent mt-0.5">✓</span>
+            <span class="text-ivory/90">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-10 text-center">Ce que vous saurez faire</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-4">CRM et pipeline</h3>
+          <ul class="space-y-2">
+            {crmSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-navy/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-4">Devis et facturation</h3>
+          <ul class="space-y-2">
+            {invoiceSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-navy/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-4">Gestion opérationnelle</h3>
+          <ul class="space-y-2">
+            {operationalSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-navy/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-4">Pilotage et reporting</h3>
+          <ul class="space-y-2">
+            {reportingSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-navy/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory-dark/50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">Livrables remis au stagiaire</h2>
+          <ul class="space-y-4">
+            {deliverables.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="text-accent">✓</span>
+                <span class="text-navy/90">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-accent/5 border border-accent/20 rounded-2xl p-8">
+          <h3 class="text-2xl font-bold text-navy mb-4">Évaluation finale</h3>
+          <p class="text-slate mb-4">
+            Cas pratique de 60 minutes : à partir d’un scénario fictif (1 prospect entrant, 1 devis à créer, 1 relance à envoyer, 1 facture à émettre, 1 rapport à générer), le stagiaire réalise l’ensemble en autonomie.
+          </p>
+          <p class="font-semibold text-navy">Réussite = 5 tâches sur 5 accomplies dans le temps imparti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-accent text-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Vous avez besoin d’un CRM complet ?</h2>
+      <p class="text-lg text-ivory/90 mb-8">L’audit en ligne identifie si la Stack C (1 ou 2 jours) correspond à votre volume commercial et à vos enjeux de pilotage.</p>
+      <a href="/#audit" class="btn-secondary border-ivory text-ivory hover:bg-ivory hover:text-accent">Faire l’audit</a>
+    </div>
+  </section>
+</Layout>

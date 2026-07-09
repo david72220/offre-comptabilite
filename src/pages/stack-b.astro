@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Stack B — Confort TPE';
+const description = 'Accompagnement Qonto + Pennylane + Notion pour TPE de 2 à 8 personnes. Installation, formation 1 journée, relances, lettrage et prévisionnel de trésorerie.';
+
+const morning = [
+  { time: '09h00-09h30', duration: "30'", title: 'Accueil et positionnement', desc: 'Tour de table, réajustement du programme selon les enjeux réels du jour, exposé des objectifs mesurables.' },
+  { time: '09h30-10h15', duration: "45'", title: 'Fondamentaux réglementaires', desc: 'Facturation électronique 2026-2027, mentions obligatoires, impacts sur votre entreprise.' },
+  { time: '10h15-11h00', duration: "45'", title: 'Structuration du catalogue', desc: 'Catégories, tarifs, taux de TVA, unités de mesure, remises paramétrées.' },
+  { time: '11h00-11h15', duration: "15'", title: 'Pause', desc: '' },
+  { time: '11h15-12h00', duration: "45'", title: 'Modèles de documents', desc: 'Devis et facture personnalisés, numérotation, conditions générales de vente.' },
+  { time: '12h00-12h30', duration: "30'", title: 'Base clients', desc: 'Structuration B2B/B2C, données e-invoicing, import Excel/CSV.' },
+];
+
+const afternoon = [
+  { time: '13h30-14h15', duration: "45'", title: 'Cycle de vente complet', desc: 'Devis, signature électronique, facturation d’acompte, factures récurrentes.' },
+  { time: '14h15-15h00', duration: "45'", title: 'Relances automatiques', desc: 'Scénarios 7/15/30 jours, personnalisation par typologie client, exceptions.' },
+  { time: '15h00-15h15', duration: "15'", title: 'Pause', desc: '' },
+  { time: '15h15-16h00', duration: "45'", title: 'Connexion bancaire et lettrage', desc: 'Synchro Qonto ↔ Pennylane, catégorisation, lettrage semi-automatique, cas complexes.' },
+  { time: '16h00-16h45', duration: "45'", title: 'Pilotage', desc: 'Tableau de bord trésorerie, DSO, forecast 30/60 jours, indicateurs par client et par produit.' },
+  { time: '16h45-17h00', duration: "15'", title: 'Récapitulatif et évaluation', desc: 'Cas pratique final en autonomie, réponses aux dernières questions, attestation.' },
+];
+
+const objectives = [
+  'Structurer son catalogue produits/prestations avec les bons taux de TVA',
+  'Créer un devis complexe (multi-lignes, remises, acomptes) et le suivre jusqu’à signature',
+  'Émettre une facture électronique conforme et la transmettre via Pennylane',
+  'Paramétrer des relances automatiques différenciées par typologie de client',
+  'Rapprocher ses paiements clients avec ses factures (lettrage) en autonomie',
+  'Piloter sa trésorerie prévisionnelle et anticiper ses besoins de financement',
+  'Collaborer en temps réel avec son expert-comptable via Pennylane',
+  'Segmenter ses clients dans Notion et suivre son pipeline commercial',
+];
+
+const deliverables = [
+  'Livret utilisateur personnalisé (12-14 pages) — captures de votre environnement',
+  'Fichier catalogue produits/prestations structuré (Excel/CSV)',
+  'Template Notion "Suivi commercial TPE" configuré à vos couleurs',
+  '7 vidéos tutorielles sur les workflows clés',
+  'Accès Notion "Fiches réflexe Pennylane"',
+  '30 jours de hotline mail post-formation',
+];
+
+const qontoSkills = [
+  'Émettre virements SEPA instantanés et programmés',
+  'Créer et gérer des cartes physiques et virtuelles avec plafonds différenciés',
+  'Suivre les dépenses par catégorie et par utilisateur',
+  'Automatiser la collecte des justificatifs',
+  'Configurer les droits d’accès pour un salarié ou un associé',
+  'Recevoir les factures électroniques via la Plateforme Agréée Qonto',
+  'Extraire un IBAN virtuel dédié à un client',
+  'Encaisser via lien de paiement',
+];
+
+const pennylaneSkills = [
+  'Créer un devis multi-lignes avec remises, acomptes, conditions de règlement',
+  'Générer un devis en moins de 90 secondes à partir du catalogue',
+  'Faire signer un devis électroniquement',
+  'Convertir un devis accepté en facture en 1 clic sans ressaisie',
+  'Émettre une facture d’acompte, de solde, un avoir',
+  'Créer une facture récurrente',
+  'Envoyer la facture par email avec suivi',
+  'Émettre une facture électronique conforme (Factur-X / UBL)',
+  'Paramétrer un scénario de relance à 3 étapes',
+  'Lettrer automatiquement les paiements reçus',
+  'Traiter les cas de lettrage complexe',
+  'Générer un prévisionnel de trésorerie à 30/60/90 jours',
+  'Suivre le DSO global et par client',
+  'Extraire un FEC ou un journal comptable',
+  'Partager le portail avec l’expert-comptable',
+];
+
+const notionSkills = [
+  'Utiliser le template "Suivi commercial TPE Alliance Digitale"',
+  'Structurer une base clients enrichie',
+  'Suivre un pipeline commercial simple',
+  'Gérer une base documentaire partagée',
+  'Créer un tableau de bord d’activité mensuel',
+  'Partager un espace de travail avec un associé ou un assistant',
+];
+---
+
+<Layout title={title} description={description}>
+  <section class="relative bg-navy text-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-accent font-semibold tracking-wide uppercase text-sm mb-3">Stack B</p>
+          <h1 class="font-script text-5xl md:text-6xl mb-6">Confort TPE</h1>
+          <p class="text-lg md:text-xl text-ivory/90 mb-6">
+            Gérer son cycle commercial de bout en bout avec Qonto, Pennylane et Notion. Pour la TPE de 2 à 8 personnes qui veut passer à une gestion commerciale professionnelle sans dépendre d’un prestataire.
+          </p>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="px-4 py-2 rounded-full bg-ivory/10 text-ivory text-sm font-medium">Qonto</span>
+            <span class="px-4 py-2 rounded-full bg-ivory/10 text-ivory text-sm font-medium">Pennylane</span>
+            <span class="px-4 py-2 rounded-full bg-ivory/10 text-ivory text-sm font-medium">Notion</span>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/#audit" class="btn-primary">Demander un devis</a>
+            <a href="/livrables/" class="btn-secondary border-ivory text-ivory hover:bg-ivory hover:text-navy">Voir les livrables</a>
+          </div>
+        </div>
+        <div class="bg-ivory text-navy rounded-2xl p-8 shadow-xl">
+          <p class="text-sm text-slate uppercase tracking-wide mb-2">Investissement</p>
+          <p class="text-5xl font-bold text-navy mb-2">690 € HT + 600 € HT</p>
+          <p class="text-slate mb-6">Accompagnement + formation 1 journée / 7h</p>
+          <hr class="border-navy/10 mb-6" />
+          <ul class="space-y-3">
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Installation Qonto + Pennylane + Notion</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Formation 1 journée (présentiel ou visio)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Catalogue, relances, lettrage et prévisionnel</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-navy mb-4">Public visé</h2>
+          <p class="text-slate text-lg">
+            Dirigeants et administratifs de TPE de 2 à 8 personnes, réalisant entre 30 et 150 factures par mois, travaillant ou souhaitant travailler avec un expert-comptable équipé Pennylane ou compatible FEC standard.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-navy mb-4">Prérequis</h2>
+          <ul class="space-y-2 text-slate">
+            <li>Notions de base sur la facturation (mentions légales, TVA, échéance)</li>
+            <li>Savoir utiliser un ordinateur et naviguer sur le web</li>
+            <li>Avoir un compte bancaire professionnel actif ou en cours d’ouverture</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory-dark/50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-10 text-center">Objectifs pédagogiques</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {objectives.map((objective, i) => (
+          <div class="bg-ivory p-6 rounded-xl shadow-sm border-l-4 border-accent">
+            <div class="flex items-start gap-4">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-ivory flex items-center justify-center font-bold">{i + 1}</span>
+              <p class="text-navy/90">{objective}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-10 text-center">Programme détaillé (1 journée / 7 heures)</h2>
+
+      <h3 class="text-xl font-bold text-navy mb-6">Matinée — Configuration et fondamentaux</h3>
+      <div class="space-y-6 mb-12">
+        {morning.map((item) => (
+          <div class="md:grid md:grid-cols-12 md:gap-6 items-start">
+            <div class="md:col-span-3 mb-2 md:mb-0">
+              <p class="font-semibold text-navy">{item.time}</p>
+              <p class="text-sm text-slate">{item.duration}</p>
+            </div>
+            <div class="md:col-span-9 bg-ivory-dark/50 p-5 rounded-xl border-l-4 border-navy">
+              <h4 class="font-bold text-lg text-navy mb-1">{item.title}</h4>
+              {item.desc && <p class="text-slate">{item.desc}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="text-xl font-bold text-navy mb-6">Après-midi — Vente, automation et pilotage</h3>
+      <div class="space-y-6">
+        {afternoon.map((item) => (
+          <div class="md:grid md:grid-cols-12 md:gap-6 items-start">
+            <div class="md:col-span-3 mb-2 md:mb-0">
+              <p class="font-semibold text-navy">{item.time}</p>
+              <p class="text-sm text-slate">{item.duration}</p>
+            </div>
+            <div class="md:col-span-9 bg-ivory-dark/50 p-5 rounded-xl border-l-4 border-accent">
+              <h4 class="font-bold text-lg text-navy mb-1">{item.title}</h4>
+              {item.desc && <p class="text-slate">{item.desc}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-navy text-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">Ce que vous saurez faire</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-4">Sur Qonto</h3>
+          <ul class="space-y-2">
+            {qontoSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-ivory/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-4">Sur Pennylane</h3>
+          <ul class="space-y-2">
+            {pennylaneSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-ivory/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-4">Sur Notion</h3>
+          <ul class="space-y-2">
+            {notionSkills.map((skill) => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent">✓</span>
+                <span class="text-ivory/90">{skill}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">Livrables remis au stagiaire</h2>
+          <ul class="space-y-4">
+            {deliverables.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="text-accent">✓</span>
+                <span class="text-navy/90">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-accent/5 border border-accent/20 rounded-2xl p-8">
+          <h3 class="text-2xl font-bold text-navy mb-4">Évaluation finale</h3>
+          <p class="text-slate mb-4">
+            Cas pratique de 45 minutes : à partir d’une commande fictive, créer le devis, obtenir sa signature simulée, le transformer en facture avec acompte, paramétrer les relances, saisir un règlement partiel et lire l’impact sur la trésorerie prévisionnelle.
+          </p>
+          <p class="font-semibold text-navy">Réussite = 6 tâches sur 7 sans erreur bloquante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-accent text-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Votre TPE passe au niveau supérieur ?</h2>
+      <p class="text-lg text-ivory/90 mb-8">Demandez un audit gratuit. Nous vous orientons vers le Stack B si votre volume et vos besoins de pilotage le justifient.</p>
+      <a href="/#audit" class="btn-secondary border-ivory text-ivory hover:bg-ivory hover:text-accent">Faire l’audit</a>
+    </div>
+  </section>
+</Layout>

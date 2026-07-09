@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MatriceAudit from '../components/MatriceAudit.tsx';
+
+const title = 'Accompagnement comptabilité TPE, clé en main';
+const description = 'Alliance Digitale accompagne les TPE dans la mise en place de leur comptabilité et gestion commerciale : installation, formation et autonomie opérationnelle.';
+
+const stacks = [
+  {
+    id: 'A',
+    name: 'Stack A — Essentiel Solo',
+    slug: '/stack-a/',
+    price: '690 € HT',
+    detail: 'formation 1h comprise',
+    tools: ['Qonto', 'Indy'],
+    benefits: [
+      'Devis et factures conformes 2026 en 3 minutes',
+      'Trésorerie et déclaration TVA maîtrisées',
+      'Accompagnement individuel par visio',
+    ],
+  },
+  {
+    id: 'B',
+    name: 'Stack B — Confort TPE',
+    slug: '/stack-b/',
+    price: '690 € HT + 600 € HT',
+    detail: 'accompagnement + formation 1 journée',
+    tools: ['Qonto', 'Pennylane', 'Notion'],
+    benefits: [
+      'Catalogue produits et devis multi-lignes signés',
+      'Relances et lettrage bancaire automatisés',
+      'Prévisionnel de trésorerie à 90 jours',
+    ],
+  },
+  {
+    id: 'C',
+    name: 'Stack C — Commerciale intégrée',
+    slug: '/stack-c/',
+    price: '1 590 € HT + 1 200 € HT',
+    detail: 'accompagnement + formation 2 jours',
+    tools: ['Axonaut'],
+    benefits: [
+      'Pipeline commercial et CRM complet',
+      'Automatisations et reporting avancé',
+      'Équipe commerciale coordonnée',
+    ],
+  },
+  {
+    id: 'D',
+    name: 'Stack D — BTP Artisan chantier',
+    slug: '/stack-d/',
+    price: '890 € HT',
+    detail: 'formation 2h comprise',
+    tools: ['Qonto', 'Obat / Trustup Pro'],
+    benefits: [
+      'Devis chantier structuré par lots',
+      'Signature terrain et factures de situation',
+      'Rentabilité chantier suivie en temps réel',
+    ],
+  },
+];
+---
+
+<Layout title={title} description={description} canonical="https://offre-comptabilite.vercel.app/">
+  <section class="relative bg-navy text-ivory overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 100 L100 0 L100 100 Z" fill="currentColor" />
+      </svg>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div class="max-w-3xl">
+        <p class="text-accent font-semibold tracking-wide uppercase text-sm mb-4">Alliance Digitale — Accompagnement TPE</p>
+        <h1 class="font-script text-5xl md:text-7xl mb-6 leading-tight">Votre comptabilité TPE, clé en main</h1>
+        <p class="text-lg md:text-xl text-ivory/90 mb-8 leading-relaxed max-w-2xl">
+          Vous ne cherchez pas un logiciel. Vous cherchez à être opérationnel, autonome et en règle. Nous installons vos outils, structurons votre gestion commerciale et vous formons sur votre propre environnement.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#audit" class="btn-primary text-lg">Faire l’audit en 2 minutes</a>
+          <a href="#offres" class="btn-secondary border-ivory text-ivory hover:bg-ivory hover:text-navy">Découvrir les offres</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audit" class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Audit rapide de votre gestion commerciale</h2>
+        <p class="text-slate text-lg">
+          Répondez à 4 questions pour identifier le pack d’accompagnement le plus adapté à votre activité. Un conseiller vous recontacte sous 48 heures ouvrables.
+        </p>
+      </div>
+      <MatriceAudit client:only="react" />
+    </div>
+  </section>
+
+  <section id="offres" class="py-16 md:py-24 bg-ivory-dark/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Nos packs d’accompagnement</h2>
+        <p class="text-slate text-lg">
+          Chaque stack combine installation, paramétrage et formation. Vous repartez avec vos outils opérationnels, votre documentation personnalisée et l’autonomie pour faire tourner votre quotidien.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        {stacks.map((stack) => (
+          <article class="bg-ivory rounded-xl shadow-lg border border-navy/10 overflow-hidden flex flex-col">
+            <div class="bg-navy text-ivory p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center font-bold text-lg">{stack.id}</span>
+                <h3 class="font-semibold text-lg leading-tight">{stack.name}</h3>
+              </div>
+              <p class="text-2xl font-bold">{stack.price}</p>
+              <p class="text-sm text-ivory/70">{stack.detail}</p>
+            </div>
+            <div class="p-6 flex-grow flex flex-col">
+              <p class="text-sm font-semibold text-slate uppercase tracking-wide mb-3">Outils inclus</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                {stack.tools.map((tool) => (
+                  <span class="inline-flex items-center px-3 py-1 rounded-full bg-navy/5 text-navy text-sm font-medium">{tool}</span>
+                ))}
+              </div>
+              <ul class="space-y-2 mb-6 flex-grow">
+                {stack.benefits.map((benefit) => (
+                  <li class="flex items-start gap-2 text-navy/90">
+                    <span class="text-accent mt-1" aria-hidden="true">✓</span>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href={stack.slug} class="btn-primary w-full">
+                Voir le détail
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">Formations incluses dans les packs</h2>
+          <p class="text-slate text-lg mb-4">
+            L’accompagnement Alliance Digitale ne se limite pas à installer un logiciel. Chaque pack inclut une formation action, réalisée dans votre environnement réel, avec vos vraies données.
+          </p>
+          <p class="text-slate text-lg mb-4">
+            Le formateur paramètre une fois avec vous, puis vous l’exécutez deux fois seul. À l’issue de la session, vous disposez d’un livret personnalisé, de fiches réflexe et d’une hotline post-formation pour sécuriser votre autonomie.
+          </p>
+          <ul class="space-y-3 mt-6">
+            <li class="flex items-start gap-3">
+              <span class="text-accent font-bold">1.</span>
+              <span>Formation individuelle ou en petit groupe (1 à 4 personnes)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-accent font-bold">2.</span>
+              <span>Présentiel chez vous ou distanciel synchrone, selon votre convenance</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-accent font-bold">3.</span>
+              <span>Documentation personnalisée avec les captures de votre propre environnement</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-accent font-bold">4.</span>
+              <span>Attestation de formation et évaluation finale en autonomie</span>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-navy text-ivory rounded-2xl p-8 shadow-xl">
+          <blockquote class="font-script text-3xl md:text-4xl leading-snug mb-6">
+            "Une TPE qui reste dépendante d'un prestataire pour créer un devis n'a pas été formée : elle a été rendue captive."
+          </blockquote>
+          <p class="text-ivory/80">Notre objectif : vous rendre autonome, en règle et opérationnel dès le lendemain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-accent text-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Prêt à sécuriser votre gestion commerciale ?</h2>
+      <p class="text-lg text-ivory/90 mb-8">
+        Commencez par l’audit gratuit. En 2 minutes, nous identifions ensemble le pack le plus pertinent pour votre activité.
+      </p>
+      <a href="#audit" class="btn-secondary border-ivory text-ivory hover:bg-ivory hover:text-accent">
+        Faire l’audit maintenant
+      </a>
+    </div>
+  </section>
+</Layout>

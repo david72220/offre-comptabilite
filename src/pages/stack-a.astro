@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Stack A — Essentiel Solo';
+const description = 'Accompagnement Qonto + Indy pour dirigeant solo : installation, paramétrage et formation 1h. Devis, factures, TVA et trésorerie maîtrisés.';
+
+const program = [
+  { time: '0-5 min', duration: "5'", title: 'Tour de table et positionnement', desc: 'Rappel des objectifs, ajustement du programme selon votre contexte.' },
+  { time: '5-15 min', duration: "10'", title: 'Configuration Qonto', desc: 'Profil entreprise, mentions légales 2026, logo, numérotation des factures.' },
+  { time: '15-30 min', duration: "15'", title: 'Cycle devis → facture', desc: 'Création d’un devis-type, envoi client, conversion sans ressaisie, envoi de facture.' },
+  { time: '30-40 min', duration: "10'", title: 'Facture électronique fournisseur', desc: 'Configuration annuaire PA, réception, validation et archivage.' },
+  { time: '40-50 min', duration: "10'", title: 'Indy : compta et TVA', desc: 'Synchronisation bancaire, catégorisation automatique, préparation TVA.' },
+  { time: '50-60 min', duration: "10'", title: 'Récap et conformité', desc: 'Points de vigilance facturation électronique 09/2026 et 09/2027, remise du livret.' },
+];
+
+const objectives = [
+  'Créer un devis conforme aux mentions légales 2026 sur Qonto en moins de 3 minutes',
+  'Transformer un devis accepté en facture sans ressaisie',
+  'Recevoir une facture électronique de fournisseur via l’annuaire PA',
+  'Suivre ses encaissements et sa trésorerie en temps réel',
+  'Exporter son FEC et sa déclaration TVA depuis Indy',
+  'Identifier les obligations réglementaires facturation électronique 2026-2027 et son propre calendrier',
+];
+
+const deliverables = [
+  'Livret utilisateur personnalisé PDF (6-8 pages)',
+  'Accès Notion "Fiches réflexe Qonto + Indy"',
+  '3 vidéos courtes (2-3 min) : créer un devis, recevoir une facture électronique, déclarer sa TVA',
+  'Certificat d’assiduité',
+];
+
+const skills = [
+  'Créer un devis PDF conforme mentions légales 2026 en 3 minutes',
+  'Personnaliser un modèle de facture (logo, couleurs, conditions de règlement)',
+  'Numéroter automatiquement vos factures (séquence continue)',
+  'Recevoir une facture électronique via l’annuaire des Plateformes Agréées',
+  'Distinguer une facture électronique conforme d’un simple PDF',
+  'Suivre les statuts de vos factures émises',
+  'Envoyer une relance simple à un client en retard',
+  'Consulter votre trésorerie disponible en temps réel',
+  'Catégoriser automatiquement une dépense bancaire dans Indy',
+  'Attacher un justificatif photo à une dépense via mobile',
+  'Générer votre déclaration TVA depuis Indy',
+  'Exporter votre FEC pour l’expert-comptable ou un contrôle',
+  'Émettre une note de frais mobile depuis votre smartphone',
+];
+---
+
+<Layout title={title} description={description}>
+  <section class="relative bg-navy text-ivory">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-accent font-semibold tracking-wide uppercase text-sm mb-3">Stack A</p>
+          <h1 class="font-script text-5xl md:text-6xl mb-6">Essentiel Solo</h1>
+          <p class="text-lg md:text-xl text-ivory/90 mb-6">
+            Prendre en main sa gestion commerciale avec Qonto et Indy. Pour le dirigeant solo qui veut émettre des devis et factures conformes, suivre sa trésorerie et préparer sa TVA sans perdre de temps.
+          </p>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="px-4 py-2 rounded-full bg-ivory/10 text-ivory text-sm font-medium">Qonto</span>
+            <span class="px-4 py-2 rounded-full bg-ivory/10 text-ivory text-sm font-medium">Indy</span>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/#audit" class="btn-primary">Demander un devis</a>
+            <a href="/livrables/" class="btn-secondary border-ivory text-ivory hover:bg-ivory hover:text-navy">Voir les livrables</a>
+          </div>
+        </div>
+        <div class="bg-ivory text-navy rounded-2xl p-8 shadow-xl">
+          <p class="text-sm text-slate uppercase tracking-wide mb-2">Investissement</p>
+          <p class="text-5xl font-bold text-navy mb-2">690 € HT</p>
+          <p class="text-slate mb-6">Formation individuelle 1 heure comprise</p>
+          <hr class="border-navy/10 mb-6" />
+          <ul class="space-y-3">
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Installation et paramétrage Qonto + Indy</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Formation 1h en visio partagée</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-accent">✓</span>
+              <span>Livret personnalisé et fiches réflexe</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-navy mb-4">Public visé</h2>
+          <p class="text-slate text-lg">
+            Dirigeant solo de très petite entreprise (freelance, consultant, coach, artisan solo, profession libérale) réalisant moins de 30 factures par mois, sans expert-comptable ou avec un expert-comptable acceptant le format numérique standard (FEC).
+          </p>
+        </div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-navy mb-4">Prérequis</h2>
+          <ul class="space-y-2 text-slate">
+            <li>Savoir naviguer sur un site web et manipuler une adresse email</li>
+            <li>Comprendre les notions de base de TVA (assujetti ou non, taux normal)</li>
+            <li>Connaître son SIRET, son code APE et son régime fiscal (BIC/BNC, réel simplifié ou micro)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory-dark/50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-10 text-center">Objectifs pédagogiques</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {objectives.map((objective, i) => (
+          <div class="bg-ivory p-6 rounded-xl shadow-sm border-l-4 border-accent">
+            <div class="flex items-start gap-4">
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy text-ivory flex items-center justify-center font-bold">{i + 1}</span>
+              <p class="text-navy/90">{objective}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-10 text-center">Programme détaillé (60 minutes)</h2>
+      <div class="space-y-6">
+        {program.map((item) => (
+          <div class="relative pl-8 md:pl-0">
+            <div class="md:grid md:grid-cols-12 md:gap-6 items-start">
+              <div class="md:col-span-3">
+                <p class="font-semibold text-navy">{item.time}</p>
+                <p class="text-sm text-slate">{item.duration}</p>
+              </div>
+              <div class="md:col-span-9 bg-ivory-dark/50 p-5 rounded-xl border-l-4 border-navy">
+                <h3 class="font-bold text-lg text-navy mb-1">{item.title}</h3>
+                <p class="text-slate">{item.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-navy text-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">Ce que vous saurez faire</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {skills.map((skill) => (
+          <div class="flex items-start gap-3">
+            <span class="text-accent mt-0.5">✓</span>
+            <span class="text-ivory/90">{skill}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-ivory">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">Livrables remis au stagiaire</h2>
+          <ul class="space-y-4">
+            {deliverables.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="text-accent">✓</span>
+                <span class="text-navy/90">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-accent/5 border border-accent/20 rounded-2xl p-8">
+          <h3 class="text-2xl font-bold text-navy mb-4">Évaluation finale</h3>
+          <p class="text-slate mb-4">
+            En 15 minutes, le stagiaire réalise en autonomie : création d’un devis, conversion en facture, ajout d’une dépense avec justificatif, consultation du tableau de bord trésorerie.
+          </p>
+          <p class="font-semibold text-navy">Réussite = 4 tâches sur 4 accomplies sans intervention du formateur.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-accent text-ivory">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Vous êtes un dirigeant solo ?</h2>
+      <p class="text-lg text-ivory/90 mb-8">Démarrez votre accompagnement Stack A dès maintenant. Audit gratuit et devis sous 48 heures.</p>
+      <a href="/#audit" class="btn-secondary border-ivory text-ivory hover:bg-ivory hover:text-accent">Faire l’audit</a>
+    </div>
+  </section>
+</Layout>
