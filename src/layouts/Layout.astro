@@ -118,6 +118,7 @@ const navLinks = [
   </footer>
 
   <script is:inline>
+    // Mobile menu toggle
     (function () {
       const toggle = document.getElementById('menu-toggle');
       const menu = document.getElementById('mobile-menu');
@@ -128,6 +129,39 @@ const navLinks = [
           menu.classList.toggle('hidden');
         });
       }
+    })();
+
+    // Reveal animations — IntersectionObserver
+    // CSS sets [data-reveal] { opacity: 0 } so we MUST animate them in
+    (function () {
+      var els = document.querySelectorAll('[data-reveal]');
+      if (!els.length) return;
+
+      // If user prefers reduced motion, show everything immediately
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(function (el) { el.style.opacity = '1'; el.style.transform = 'none'; });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var delay = parseFloat(el.dataset.revealDelay) || 0;
+            setTimeout(function () {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, delay * 1000);
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      els.forEach(function (el) {
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(el);
+      });
     })();
   </script>
 </body>
