@@ -9,3 +9,8 @@ npm-debug.log*
 .DS_Store
 .env*
 .npm-cache/
+
+# Local-only project context
+CLAUDE.md
+claude.md
+Claude.md
