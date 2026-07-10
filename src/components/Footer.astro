@@ -1,0 +1,62 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="relative bg-alliance-dark-2 border-t border-white/[0.06] mt-auto">
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-alliance-blue/40 to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
+      <div>
+        <a href="/" class="inline-block mb-6">
+          <span class="font-script text-3xl text-white/95 hover:text-white transition-colors">Alliance Digitale</span>
+        </a>
+        <p class="text-sm text-white/65 leading-relaxed">
+          Accompagnement clé en main de la comptabilité et de la gestion commerciale des TPE. Installation, formation et autonomie.
+        </p>
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Navigation</h2>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li><a href="/" class="hover:text-alliance-blue transition">Accueil</a></li>
+          <li><a href="/stack-a/" class="hover:text-alliance-blue transition">Stack A — Essentiel Solo</a></li>
+          <li><a href="/stack-b/" class="hover:text-alliance-blue transition">Stack B — Confort TPE</a></li>
+          <li><a href="/stack-c/" class="hover:text-alliance-blue transition">Stack C — Commerciale intégrée</a></li>
+          <li><a href="/stack-d/" class="hover:text-alliance-blue transition">Stack D — BTP Artisan chantier</a></li>
+          <li><a href="/livrables/" class="hover:text-alliance-blue transition">Livrables</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Légal</h2>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li><a href="/mentions-legales/" class="hover:text-alliance-blue transition">Mentions légales</a></li>
+          <li><a href="/politique-de-confidentialite/" class="hover:text-alliance-blue transition">Politique de confidentialité</a></li>
+          <li><a href="/#audit" class="hover:text-alliance-blue transition">Audit en ligne</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Contact</h2>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-alliance-blue/60 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            contact@alliance-digitale.fr
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-alliance-blue/60 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            David Pierre Olivier
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-alliance-blue/60 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+            Ecommoy, Sarthe
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-white/60">© {currentYear} Alliance Digitale — Tous droits réservés.</p>
+      <div class="flex items-center gap-4">
+        <a href="/mentions-legales/" class="text-xs text-white/60 hover:text-white transition-colors">Mentions légales</a>
+        <a href="/politique-de-confidentialite/" class="text-xs text-white/60 hover:text-white transition-colors">Politique de confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -2,66 +2,76 @@
 import Layout from '../layouts/Layout.astro';
 
 const title = 'Mentions légales';
-const description = 'Mentions légales du site Offre Comptabilité Alliance Digitale : éditeur, hébergeur, propriété intellectuelle et contact.';
+const description = 'Mentions légales du site Offre Comptabilité proposé par Alliance Digitale.';
 ---
 
 <Layout title={title} description={description}>
-  <section class="bg-navy text-ivory py-16 md:py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="font-script text-5xl md:text-6xl mb-4">Mentions légales</h1>
-      <p class="text-ivory/80">Dernière mise à jour : juillet 2026</p>
+  <section class="relative overflow-hidden bg-alliance-dark-2 pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-alliance-orange/10 via-transparent to-transparent"></div>
+    <div class="relative max-w-4xl mx-auto">
+      <p class="text-alliance-orange font-semibold tracking-wide uppercase text-sm mb-3" data-hero-anim="badge">Informations légales</p>
+      <h1 class="font-script text-5xl md:text-6xl mb-6 text-white" data-hero-anim="title">Mentions légales</h1>
     </div>
   </section>
 
-  <section class="py-16 md:py-24 bg-ivory">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose">
-      <h2>1. Éditeur du site</h2>
-      <p>
-        Le site <strong>offre-comptabilite.vercel.app</strong> est édité par Alliance Digitale, micro-entreprise immatriculée en France.
-      </p>
-      <ul>
-        <li><strong>Raison sociale</strong> : Alliance Digitale</li>
-        <li><strong>Représentant légal</strong> : David Pierre Olivier</li>
-        <li><strong>Email</strong> : <a href="mailto:contact@alliance-digitale.fr">contact@alliance-digitale.fr</a></li>
-        <li><strong>Siège social</strong> : Ecommoy, Sarthe (72220), France</li>
-      </ul>
+  <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto course-content">
+      <div class="relief-panel p-8 mb-10" data-reveal>
+        <h2>Éditeur du site</h2>
+        <p>
+          <strong>Alliance Digitale</strong> — micro-entreprise.
+        </p>
+        <p>
+          <strong>Représentant légal :</strong> David Pierre Olivier.
+        </p>
+        <p>
+          <strong>Adresse :</strong> Ecommoy, Sarthe (72), France.
+        </p>
+        <p>
+          <strong>Email :</strong> contact@alliance-digitale.fr
+        </p>
+        <p>
+          <strong>SIRET :</strong> 941 465 987 00014.
+        </p>
+      </div>
 
-      <h2>2. Hébergement</h2>
-      <p>
-        Le site est hébergé par Vercel Inc.
-      </p>
-      <ul>
-        <li><strong>Adresse</strong> : 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</li>
-        <li><strong>Site web</strong> : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">https://vercel.com</a></li>
-      </ul>
+      <div class="relief-panel p-8 mb-10" data-reveal>
+        <h2>Hébergement</h2>
+        <p>
+          Le site est hébergé par <strong>Vercel Inc.</strong>, 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis.
+        </p>
+      </div>
 
-      <h2>3. Propriété intellectuelle</h2>
-      <p>
-        L’ensemble des éléments constituant le site (textes, graphismes, logo, icônes, photographies, vidéos, sons, charte graphique, code source…) est la propriété exclusive d’Alliance Digitale ou de ses partenaires. Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable.
-      </p>
-      <p>
-        Les marques et logos des éditeurs de logiciels tiers (Qonto, Indy, Pennylane, Notion, Axonaut, Obat, Trustup Pro) sont la propriété de leurs titulaires respectifs et sont utilisés à titre informatif pour décrire les outils intégrés dans nos prestations.
-      </p>
+      <div class="relief-panel p-8 mb-10" data-reveal>
+        <h2>Propriété intellectuelle</h2>
+        <p>
+          L’ensemble des éléments constitutifs du site (textes, images, charte graphique, structure, code source) est la propriété exclusive d’Alliance Digitale, sauf mention contraire. Toute reproduction, représentation ou diffusion, même partielle, est interdite sans autorisation préalable.
+        </p>
+      </div>
 
-      <h2>4. Activité et réglementation</h2>
-      <p>
-        Les prestations proposées sur ce site combinent une prestation d’accompagnement à la mise en place d’outils de gestion commerciale et, selon les packs, des actions de formation professionnelle continue au sens de l’article L.6313-1 du Code du travail. L’organisme est en cours de déclaration d’activité auprès de la préfecture de région. Les mentions relatives au financement OPCO/FAF seront activées une fois le référencement Qualiopi ou le portage Signe+ formalisé.
-      </p>
+      <div class="relief-panel p-8 mb-10" data-reveal>
+        <h2>Responsabilité</h2>
+        <p>
+          Les informations publiées sur ce site le sont à titre indicatif. Alliance Digitale s’efforce d’en assurer l’exactitude et la mise à jour, mais ne saurait être tenue responsable d’éventuelles erreurs, omissions ou résultats liés à l’usage de ces informations.
+        </p>
+        <p>
+          Le site peut contenir des liens vers des sites tiers. Alliance Digitale n’exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou leur fonctionnement.
+        </p>
+      </div>
 
-      <h2>5. Limitation de responsabilité</h2>
-      <p>
-        Alliance Digitale s’efforce d’assurer au mieux l’exactitude et la mise à jour des informations publiées sur le site. Toutefois, elle ne peut garantir l’exactitude, la précision ou l’exhaustivité des informations mises à disposition. L’utilisateur est invité à vérifier l’exactitude des informations auprès d’Alliance Digitale avant toute décision.
-      </p>
+      <div class="relief-panel p-8 mb-10" data-reveal>
+        <h2>Données personnelles</h2>
+        <p>
+          Pour connaître les modalités de collecte, de traitement et de protection de vos données personnelles, veuillez consulter notre <a href="/politique-de-confidentialite/" class="text-alliance-blue hover:text-white transition-colors">Politique de confidentialité</a>.
+        </p>
+      </div>
 
-      <h2>6. Liens hypertextes</h2>
-      <p>
-        Le site peut contenir des liens vers des sites tiers. Alliance Digitale n’exerce aucun contrôle sur ces sites et ne peut être tenue responsable de leur contenu ou de leur politique de confidentialité.
-      </p>
-
-      <h2>7. Contact</h2>
-      <p>
-        Pour toute question relative aux mentions légales, vous pouvez nous contacter à l’adresse <a href="mailto:contact@alliance-digitale.fr">contact@alliance-digitale.fr</a>.
-      </p>
+      <div class="relief-panel p-8" data-reveal>
+        <h2>Contact</h2>
+        <p>
+          Pour toute question relative au site ou à son contenu, vous pouvez nous contacter à l’adresse suivante : <a href="mailto:contact@alliance-digitale.fr" class="text-alliance-blue hover:text-white transition-colors">contact@alliance-digitale.fr</a>.
+        </p>
+      </div>
     </div>
   </section>
 </Layout>

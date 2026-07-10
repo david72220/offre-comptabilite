@@ -3,134 +3,132 @@ import '../styles/global.css';
 
 export interface Props {
   title: string;
-  description: string;
+  description?: string;
   canonical?: string;
+  noindex?: boolean;
 }
 
-const { title, description, canonical } = Astro.props;
+const { title: rawTitle, description = "Accompagnement clé en main de la comptabilité et de la gestion commerciale des TPE.", noindex = false } = Astro.props;
+
+const title = rawTitle.length > 60 ? rawTitle.slice(0, 59) + '…' : rawTitle;
 const siteUrl = 'https://offre-comptabilite.vercel.app';
-const fullTitle = `${title} | Alliance Digitale`;
-const ogImage = `${siteUrl}/og-image.png`;
+
+const navLinks = [
+  { href: '/', label: 'Accueil' },
+  { href: '/stack-a/', label: 'Stack A' },
+  { href: '/stack-b/', label: 'Stack B' },
+  { href: '/stack-c/', label: 'Stack C' },
+  { href: '/stack-d/', label: 'Stack D' },
+  { href: '/livrables/', label: 'Livrables' },
+];
 ---
 
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{fullTitle}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical || Astro.url.href} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
-    <meta property="og:title" content={fullTitle} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={fullTitle} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
-    <meta name="theme-color" content="#0F2942" />
-  </head>
-  <body class="bg-ivory text-navy antialiased flex flex-col min-h-screen">
-    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-accent text-ivory px-4 py-2 rounded">
-      Aller au contenu principal
-    </a>
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | Alliance Digitale</title>
+  <meta name="description" content={description} />
+  {!noindex && <meta name="robots" content="index, follow" />}
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <link rel="canonical" href={Astro.url.href} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={Astro.url.href} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="theme-color" content="#070d18" />
+</head>
+<body class="min-h-screen flex flex-col bg-alliance-dark text-white">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-alliance-orange text-white px-4 py-2 rounded">
+    Aller au contenu principal
+  </a>
 
-    <header class="bg-navy text-ivory sticky top-0 z-50 shadow-md">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
-          <a href="/" class="flex items-center gap-3 group" aria-label="Alliance Digitale — retour à l'accueil">
-            <span class="font-script text-3xl text-accent group-hover:text-ivory transition-colors">Alliance Digitale</span>
-          </a>
-          <nav aria-label="Navigation principale" class="hidden md:flex items-center gap-8">
-            <a href="/" class="hover:text-accent transition-colors">Accueil</a>
-            <div class="relative group">
-              <button type="button" class="hover:text-accent transition-colors flex items-center gap-1" aria-haspopup="true" aria-expanded="false">
-                Offres
-              </button>
-              <div class="absolute left-0 mt-2 w-56 bg-ivory text-navy rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <a href="/stack-a/" class="block px-4 py-3 hover:bg-ivory-dark border-b border-ivory-dark">Stack A — Essentiel Solo</a>
-                <a href="/stack-b/" class="block px-4 py-3 hover:bg-ivory-dark border-b border-ivory-dark">Stack B — Confort TPE</a>
-                <a href="/stack-c/" class="block px-4 py-3 hover:bg-ivory-dark border-b border-ivory-dark">Stack C — Commerciale intégrée</a>
-                <a href="/stack-d/" class="block px-4 py-3 hover:bg-ivory-dark">Stack D — BTP Artisan chantier</a>
-              </div>
-            </div>
-            <a href="/livrables/" class="hover:text-accent transition-colors">Livrables</a>
-            <a href="/#audit" class="btn-primary text-sm py-2 px-4">Audit gratuit</a>
-          </nav>
-          <button id="menu-toggle" class="md:hidden text-ivory p-2" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div id="mobile-menu" class="hidden md:hidden bg-navy-light text-ivory border-t border-navy-light">
-        <nav aria-label="Navigation mobile" class="flex flex-col px-4 py-4 gap-3">
-          <a href="/" class="py-2 hover:text-accent">Accueil</a>
-          <a href="/stack-a/" class="py-2 pl-4 hover:text-accent">Stack A</a>
-          <a href="/stack-b/" class="py-2 pl-4 hover:text-accent">Stack B</a>
-          <a href="/stack-c/" class="py-2 pl-4 hover:text-accent">Stack C</a>
-          <a href="/stack-d/" class="py-2 pl-4 hover:text-accent">Stack D</a>
-          <a href="/livrables/" class="py-2 hover:text-accent">Livrables</a>
-          <a href="/#audit" class="btn-primary text-center mt-2">Audit gratuit</a>
+  <!-- HEADER -->
+  <header class="bg-alliance-dark-2 border-b border-white/10 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="/" class="flex items-center gap-3 group" aria-label="Alliance Digitale — retour à l'accueil">
+          <span class="font-script text-3xl text-alliance-orange group-hover:text-white transition-colors">Alliance Digitale</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6" aria-label="Navigation principale">
+          {navLinks.map(link => (
+            <a href={link.href} class="text-white/70 hover:text-white transition-colors text-sm font-medium">{link.label}</a>
+          ))}
+          <a href="/#audit" class="btn-primary text-xs py-2 px-4">Audit gratuit</a>
         </nav>
+        <button id="menu-toggle" class="md:hidden text-white p-2" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
-    </header>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-alliance-dark-2 border-t border-white/10">
+      <nav class="flex flex-col px-4 py-4 gap-3" aria-label="Navigation mobile">
+        {navLinks.map(link => (
+          <a href={link.href} class="py-2 text-white/70 hover:text-white transition-colors">{link.label}</a>
+        ))}
+        <a href="/#audit" class="btn-primary text-center mt-2">Audit gratuit</a>
+      </nav>
+    </div>
+  </header>
 
-    <main id="main" class="flex-grow">
-      <slot />
-    </main>
+  <main id="main" class="flex-grow">
+    <slot />
+  </main>
 
-    <footer class="bg-navy text-ivory mt-auto">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <span class="font-script text-3xl text-accent">Alliance Digitale</span>
-            <p class="mt-4 text-sm text-ivory/80 max-w-xs">
-              Accompagnement clé en main de la comptabilité et de la gestion commerciale des TPE. Installation, formation et autonomie.
-            </p>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-4">Liens utiles</h3>
-            <ul class="space-y-2 text-sm">
-              <li><a href="/mentions-legales/" class="hover:text-accent transition-colors">Mentions légales</a></li>
-              <li><a href="/politique-de-confidentialite/" class="hover:text-accent transition-colors">Politique de confidentialité</a></li>
-              <li><a href="/livrables/" class="hover:text-accent transition-colors">Galerie des livrables</a></li>
-              <li><a href="/#audit" class="hover:text-accent transition-colors">Audit en ligne</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="font-semibold mb-4">Contact</h3>
-            <p class="text-sm text-ivory/80">
-              David Pierre Olivier<br />
-              <a href="mailto:contact@alliance-digitale.fr" class="hover:text-accent transition-colors">contact@alliance-digitale.fr</a><br />
-              Ecommoy, Sarthe
-            </p>
-          </div>
+  <!-- FOOTER -->
+  <footer class="bg-alliance-dark-2 border-t border-white/10 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <span class="font-script text-3xl text-alliance-orange">Alliance Digitale</span>
+          <p class="mt-4 text-sm text-white/60 max-w-xs">
+            Accompagnement clé en main de la comptabilité et de la gestion commerciale des TPE. Installation, formation et autonomie.
+          </p>
         </div>
-        <div class="border-t border-ivory/20 mt-10 pt-6 text-sm text-ivory/60 text-center">
-          © {new Date().getFullYear()} Alliance Digitale. Tous droits réservés.
+        <div>
+          <h3 class="font-display font-semibold mb-4 text-white">Liens utiles</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/mentions-legales/" class="text-white/60 hover:text-alliance-blue transition-colors">Mentions légales</a></li>
+            <li><a href="/politique-de-confidentialite/" class="text-white/60 hover:text-alliance-blue transition-colors">Politique de confidentialité</a></li>
+            <li><a href="/livrables/" class="text-white/60 hover:text-alliance-blue transition-colors">Galerie des livrables</a></li>
+            <li><a href="/#audit" class="text-white/60 hover:text-alliance-blue transition-colors">Audit en ligne</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-display font-semibold mb-4 text-white">Contact</h3>
+          <p class="text-sm text-white/60">
+            David Pierre Olivier<br />
+            <a href="mailto:contact@alliance-digitale.fr" class="text-alliance-blue hover:text-alliance-blue-light transition-colors">contact@alliance-digitale.fr</a><br />
+            Ecommoy, Sarthe
+          </p>
         </div>
       </div>
-    </footer>
+      <div class="border-t border-white/10 mt-10 pt-6 text-sm text-white/40 text-center">
+        © {new Date().getFullYear()} Alliance Digitale. Tous droits réservés.
+      </div>
+    </div>
+  </footer>
 
-    <script is:inline>
-      (function () {
-        const toggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('mobile-menu');
-        if (toggle && menu) {
-          toggle.addEventListener('click', function () {
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            menu.classList.toggle('hidden');
-          });
-        }
-      })();
-    </script>
-  </body>
+  <script is:inline>
+    (function () {
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+</body>
 </html>
